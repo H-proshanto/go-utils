@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/H-proshanto/go-utils/error/errorsvc"
+	"github.com/H-proshanto/go-utils/errorsvc"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 )
