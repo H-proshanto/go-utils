@@ -68,3 +68,14 @@ func (s *errorService) Error(ctx context.Context, internalCode string, descripti
 
 	return errResponse
 }
+
+func (s *errorService) CreateErrorForCode(ctx context.Context, errDetail *ErrorDetail) (*ErrorDetail, error) {
+	errDetail, err := s.errRepo.CreateErrorForCode(ctx, errDetail)
+
+	if err != nil {
+		logger.Error(ctx, "Could not create in db", err)
+		return nil, err
+	}
+
+	return errDetail, nil
+}
