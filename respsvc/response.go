@@ -6,14 +6,14 @@ import (
 	"github.com/H-proshanto/go-utils/helper"
 )
 
-type service struct {
+type responseService struct {
 }
 
-func NewService() Service {
-	return &service{}
+func NewService() ResponseService {
+	return &responseService{}
 }
 
-func (s *service) Response(ctx context.Context, description string, data interface{}) *ResponseData {
+func (s *responseService) Response(ctx context.Context, description string, data interface{}) *ResponseData {
 	return &ResponseData{
 		Timestamp:   helper.GetCurrentTimestamp(),
 		Description: description,

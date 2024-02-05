@@ -6,6 +6,6 @@ type ErrorRepo interface {
 	GetError(ctx context.Context, internalCode string) (*ErrorDetail, error)
 }
 
-type Service interface {
+type ErrorService interface {
 	Error(ctx context.Context, internalCode string, description string) *ErrorResponse
 }

@@ -7,22 +7,20 @@ import (
 	"github.com/H-proshanto/go-utils/logger"
 )
 
-type service struct {
+type errorService struct {
 	errRepo ErrorRepo
 }
 
 func NewService(
-
 	errorRepo ErrorRepo,
-
-) Service {
-	return &service{
+) ErrorService {
+	return &errorService{
 
 		errRepo: errorRepo,
 	}
 }
 
-func (s *service) Error(ctx context.Context, internalCode string, description string) *ErrorResponse {
+func (s *errorService) Error(ctx context.Context, internalCode string, description string) *ErrorResponse {
 	var errDetail *ErrorDetail
 
 	// get from cache
