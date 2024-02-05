@@ -1,16 +1,16 @@
-package errorRepo
+package errorrepo
 
 import (
 	"context"
 	"fmt"
 
-	errSvc "github.com/H-proshanto/go-utils/error/service"
+	"github.com/H-proshanto/go-utils/error/errorsvc"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
 type ErrorRepo interface {
-	errSvc.ErrorRepo
+	errorsvc.ErrorRepo
 }
 
 type errorRepo struct {
@@ -25,7 +25,7 @@ func NewErrorRepo(collectionName string, svc *mongo.Database) ErrorRepo {
 	}
 }
 
-func (r *errorRepo) GetError(ctx context.Context, internalCode string) (*errSvc.ErrorDetail, error) {
+func (r *errorRepo) GetError(ctx context.Context, internalCode string) (*errorsvc.ErrorDetail, error) {
 	collection := r.svc.Collection(r.collectionName)
 	input := bson.D{{Key: "InternalCode", Value: internalCode}}
 
@@ -35,7 +35,7 @@ func (r *errorRepo) GetError(ctx context.Context, internalCode string) (*errSvc.
 
 	}
 
-	var error *errSvc.ErrorDetail
+	var error *errorsvc.ErrorDetail
 	err := res.Decode(&error)
 	if err != nil {
 		return nil, fmt.Errorf("Error decoding user: %v", err)

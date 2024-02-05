@@ -1,4 +1,4 @@
-package errSvc
+package errorsvc
 
 import (
 	"context"

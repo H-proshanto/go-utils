@@ -1,4 +1,4 @@
-package respSvc
+package respsvc
 
 type ResponseData struct {
 	Timestamp   int64       `json:"timestamp"`

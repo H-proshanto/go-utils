@@ -1,4 +1,4 @@
-package errSvc
+package errorsvc
 
 type ErrorDetail struct {
 	InternalCode string `json:"internalCode"`

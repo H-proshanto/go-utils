@@ -1,4 +1,4 @@
-package respSvc
+package respsvc
 
 import "context"
 
